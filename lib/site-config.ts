@@ -6,9 +6,9 @@ export const siteConfig = {
 export const brandInitials = siteConfig.name.slice(0, 1).toUpperCase()
 
 export const navItems = [
-  ["Home", "#top"],
-  ["Repair & Tech Services", "#services"],
-  ["Schedule Support", "#how-it-works"],
-  ["Remote Support", "#remote-support"],
-  ["Contact & Help", "#faq"],
+  ["Home", "/"],
+  ["Repair & Tech Services", "/support"],
+  ["Schedule Support", "/schedule-repair"],
+  ["Remote Support", "/remote-support"],
+  ["Contact & Help", "/contact"],
 ] as const
