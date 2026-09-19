@@ -1,0 +1,4 @@
+import Link from "next/link"
+import { PageFrame, PageHero } from "@/components/site-shell"
+import { services } from "@/data/site-content"
+export default function ServicesPage() { return <PageFrame><PageHero eyebrow="Repair & Tech Services" title="Expert help for every device" description="Browse our complete service directory and choose the right path for your technology."/><section className="px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">{services.map(({slug,title,description}) => <Link key={slug} href={`/services/${slug}`} className="rounded-2xl border border-slate-200 p-6 hover:border-blue-300 hover:shadow-lg"><h2 className="text-xl font-bold text-slate-950">{title}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{description}</p><span className="mt-5 inline-block font-bold text-blue-600">View service</span></Link>)}</div></section></PageFrame> }

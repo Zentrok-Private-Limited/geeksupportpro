@@ -1,0 +1,4 @@
+import Link from "next/link"
+import { PageFrame, PageHero } from "@/components/site-shell"
+import { devices } from "@/data/site-content"
+export default function DevicesPage() { return <PageFrame><PageHero eyebrow="All devices welcome" title="Choose your device" description="Get setup, troubleshooting, repair, and protection for the technology you use every day."/><section className="px-5 py-20 lg:px-8"><div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">{devices.map(([slug,title,desc,Icon]) => <Link key={slug} href={`/devices/${slug}`} className="rounded-2xl border border-slate-200 p-5 hover:border-blue-300 hover:shadow-lg"><Icon className="size-7 text-blue-600"/><h2 className="mt-4 text-sm font-bold text-slate-950">{title}</h2><p className="mt-1 text-xs text-slate-500">{desc}</p></Link>)}</div></section></PageFrame> }

@@ -1,0 +1,3 @@
+import { PageFrame, PageHero } from "@/components/site-shell"
+import { faqs } from "@/data/site-content"
+export default function FaqPage() { return <PageFrame><PageHero eyebrow="Questions, answered" title="Frequently Asked Questions" description="Quick answers about support, repairs, appointments, and remote service."/><section className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-3xl divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-6">{faqs.map(([q,a]) => <details key={q} className="py-5"><summary className="cursor-pointer font-bold text-slate-950">{q}</summary><p className="mt-3 leading-7 text-slate-600">{a}</p></details>)}</div></section></PageFrame> }
