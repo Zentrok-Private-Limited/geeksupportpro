@@ -17,8 +17,6 @@ export const faqs = [
   ["How do I check the status of my active repair?", "Use the support link in your confirmation email or connect with a live agent and share your service details."],
   ["How does Remote Tech Support work?", "Start a secure screen-share session with a certified technician. They will guide you through the fix and explain every step."],
   ["Are your technicians certified for Apple and other major brands?", "Yes. Our support team is trained across Apple, Samsung, Windows, smart home, networking, and other leading platforms."],
-  ["What happens during a scheduled appointment?", "A technician reviews the issue, provides a transparent estimate, completes the work, and performs a quality check before wrapping up."],
-  ["Can you help with more than one device?", "Yes. We support computers, phones, tablets, printers, TVs, networks, smart home technology, gaming, and more."],
 ] as const
 
 export const supportOptions = [
