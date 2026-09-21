@@ -13,15 +13,20 @@ function Logo() {
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const [search, setSearch] = useState("")
   return <>
-    <div className="bg-[#062b7b] px-4 py-2 text-center text-xs font-semibold text-white"><span className="text-yellow-300">24/7 LIVE SUPPORT:</span><span className="mx-2 hidden sm:inline">Certified Tech Support Agents Online</span><span className="mx-3 hidden sm:inline">|</span><Link href="/remote-support" className="hover:text-yellow-300">Start Live Chat</Link><span className="mx-2">|</span><Link href="/remote-support" className="hover:text-yellow-300">Enter Session PIN</Link><span className="mx-2">|</span><Link href="/support" className="hover:text-yellow-300">Tech Services</Link></div>
+    <div className="bg-[#062b7b] px-4 py-2 text-center text-xs font-semibold text-white"><span className="text-yellow-300">24/7 LIVE SUPPORT:</span><span className="mx-2 hidden sm:inline">Certified Tech Support Agents Online</span><span className="mx-3 hidden sm:inline">|</span><Link href="/remote-support" className="hover:text-yellow-300">Start Live Chat</Link><span className="mx-2">|</span><Link href="/remote-support" className="hover:text-yellow-300">Enter Session PIN</Link><span className="mx-2">|</span><Link href="/services" className="hover:text-yellow-300">Tech Services</Link></div>
     <header className="border-b border-blue-700 bg-[#0645b5] text-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-3 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-5 py-4 lg:px-8">
         <Logo />
-        <div className="order-3 flex w-full items-center justify-center lg:order-2 lg:w-auto"><div className="hidden items-center gap-7 text-sm font-medium lg:flex">{navItems.map(([label, href]) => <Link key={label} href={href} className="hover:text-yellow-300">{label}</Link>)}</div></div>
-        <div className="flex items-center gap-3"><Link href="/remote-support" className="rounded-lg bg-yellow-300 px-5 py-2.5 text-sm font-bold text-slate-950">Live Chat</Link><button type="button" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open} className="grid size-10 place-items-center rounded-lg border border-blue-300 lg:hidden">{open ? <X /> : <Menu />}</button></div>
+        <form onSubmit={(event) => event.preventDefault()} className="order-3 flex w-full flex-1 lg:order-2 lg:mx-8 lg:w-auto">
+          <label className="sr-only" htmlFor="support-search">Search support</label>
+          <div className="flex w-full overflow-hidden rounded-md bg-white"><input id="support-search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search support: Virus clean, PC speed, Printer setup, Email, Mac, Wi-Fi..." className="min-w-0 flex-1 px-4 py-3 text-sm text-slate-900 outline-none"/><button type="submit" aria-label="Search support" className="grid w-12 place-items-center bg-slate-100 text-slate-700"><Search className="size-4"/></button></div>
+        </form>
+        <div className="ml-auto flex items-center gap-2"><Link href="/remote-support" className="rounded-md bg-yellow-300 px-4 py-3 text-sm font-bold text-slate-950">Live Chat</Link><Link href="/remote-support" className="hidden rounded-md border border-blue-200 px-4 py-3 text-sm font-semibold lg:inline-flex">Remote Support</Link><button type="button" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open} className="grid size-11 place-items-center rounded-md border border-blue-200 lg:hidden">{open ? <X /> : <Menu />}</button></div>
       </div>
-      {open && <nav className="flex flex-col gap-1 border-t border-blue-700 bg-[#0645b5] px-5 py-3 lg:hidden">{navItems.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-sm font-semibold hover:bg-blue-700">{label}</Link>)}</nav>}
+      <nav className="hidden border-t border-blue-700 lg:block"><div className="mx-auto flex max-w-7xl items-center gap-8 px-5 py-3 text-sm font-semibold lg:px-8">{navItems.map(([label, href]) => <Link key={label} href={href} className="hover:text-yellow-300">{label}</Link>)}</div></nav>
+      {open && <nav className="border-t border-blue-700 px-5 py-3 lg:hidden"><div className="flex flex-col gap-1">{navItems.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-blue-700">{label}</Link>)}</div></nav>}
     </header>
   </>
 }
