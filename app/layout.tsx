@@ -2,6 +2,8 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { siteConfig } from '@/lib/site-config'
+import Footer from '@/components/Footer'
+import { Header } from '@/components/Header'
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Expert Tech Support`,
@@ -42,8 +44,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <Header />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        <Footer />
       </body>
     </html>
   )

@@ -1,18 +1,105 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { Menu, X, BadgeCheck, ArrowRight, Search } from "lucide-react"
-import { siteConfig, brandInitials } from "@/lib/site-config"
-import { navItems } from "@/lib/site-config"
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X, BadgeCheck, ArrowRight, Search } from "lucide-react";
+import { siteConfig, brandInitials } from "@/lib/site-config";
+import { navItems } from "@/lib/site-config";
 
-export function Logo({ dark = false }: { dark?: boolean }) { return <Link href="/" className="flex items-center gap-3" aria-label={`${siteConfig.name} home`}><span className="grid size-10 place-items-center rounded-xl bg-yellow-300 text-sm font-black text-blue-950">{brandInitials}</span><span className={`text-lg font-bold tracking-tight ${dark ? "text-slate-950" : "text-white"}`}>{siteConfig.name}<span className="text-yellow-300">.</span></span></Link> }
+export function Logo({ dark = false }: { dark?: boolean }) {
+  return (
+    <Link
+      href="/"
+      className="flex items-center gap-3"
+      aria-label={`${siteConfig.name} home`}
+    >
+      <span className="grid size-10 place-items-center rounded-xl bg-yellow-300 text-sm font-black text-blue-950">
+        {brandInitials}
+      </span>
+      <span
+        className={`text-lg font-bold tracking-tight ${dark ? "text-slate-950" : "text-white"}`}
+      >
+        {siteConfig.name}
+        <span className="text-yellow-300">.</span>
+      </span>
+    </Link>
+  );
+}
 
-export function Header() { const [open, setOpen] = useState(false); const [search, setSearch] = useState(""); const links = [["Home", "/"], ["Repair & Tech Services", "/support"], ["Schedule Support", "/schedule-repair"], ["Remote Support", "/remote-support"], ["Contact & Help", "/contact"]] as const; return <><div className="bg-[#062b7b] px-4 py-2 text-center text-xs font-semibold text-white"><span className="text-yellow-300">24/7 LIVE SUPPORT:</span><span className="mx-2 hidden sm:inline">Certified Tech Support Agents Online</span><span className="mx-3 hidden sm:inline">|</span><Link href="/remote-support">Start Live Chat</Link><span className="mx-2">|</span><Link href="/remote-support">Enter Session PIN</Link><span className="mx-2">|</span><Link href="/support">Tech Services</Link></div><header className="sticky top-0 z-40 border-b border-blue-700 bg-[#0645b5] text-white shadow-sm"><div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-5 py-4 lg:px-8"><Logo/><form onSubmit={(event) => event.preventDefault()} className="order-3 flex w-full flex-1 lg:order-2 lg:mx-8 lg:w-auto"><label className="sr-only" htmlFor="shared-support-search">Search support</label><div className="flex w-full overflow-hidden rounded-md bg-white"><input id="shared-support-search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search support: Virus clean, PC speed, Printer setup, Email, Mac, Wi-Fi..." className="min-w-0 flex-1 px-4 py-3 text-sm text-slate-900 outline-none"/><button type="submit" aria-label="Search support" className="grid w-12 place-items-center bg-slate-100 text-slate-700"><Search className="size-4"/></button></div></form><div className="ml-auto flex items-center gap-2"><Link href="/remote-support" className="rounded-md bg-yellow-300 px-4 py-3 text-sm font-bold text-slate-950">Live Chat</Link><Link href="/remote-support" className="hidden rounded-md border border-blue-200 px-4 py-3 text-sm font-semibold lg:inline-flex">Remote Support</Link><button type="button" onClick={() => setOpen(!open)} className="grid size-11 place-items-center rounded-md border border-blue-200 lg:hidden" aria-label="Toggle navigation" aria-expanded={open}>{open ? <X/> : <Menu/>}</button></div></div><nav className="hidden border-t border-blue-700 lg:block"><div className="mx-auto flex max-w-7xl items-center gap-8 px-5 py-3 text-sm font-semibold lg:px-8">{links.map(([label, href]) => <Link key={label} href={href} className="hover:text-yellow-300">{label}</Link>)}</div></nav>{open && <nav className="border-t border-blue-700 px-5 py-3 lg:hidden"><div className="flex flex-col gap-1">{links.map(([label, href]) => <Link onClick={() => setOpen(false)} key={label} href={href} className="rounded-md px-3 py-3 text-sm font-semibold hover:bg-blue-700">{label}</Link>)}</div></nav>}</header></> }
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: readonly (readonly [string, string])[];
+}) {
+  return (
+    <div>
+      <h3 className="text-sm font-bold text-white">{title}</h3>
+      <div className="mt-4 flex flex-col gap-3">
+        {links.map(([label, href]) => (
+          <Link
+            href={href}
+            key={label}
+            className="text-sm transition hover:text-blue-300"
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-export function Footer() { return <footer className="bg-slate-950 px-5 pb-8 pt-16 text-slate-400 lg:px-8"><div className="mx-auto max-w-7xl"><div className="grid gap-10 md:grid-cols-[1.2fr_2fr]"><div><Logo/><p className="mt-5 max-w-xs text-sm leading-6 text-slate-500">Professional technology support for the devices and moments that matter most.</p><div className="mt-6 flex items-center gap-2 text-xs font-semibold text-slate-500"><BadgeCheck className="size-4 text-blue-400"/> Certified support network</div></div><div className="grid gap-8 sm:grid-cols-3"><FooterColumn title="Support & Services" links={[["Expert Tech Services", "/support"], ["24/7 Remote Screen Share", "/remote-support"], ["Schedule Remote Session", "/schedule-repair"], ["PC Diagnostics & Tune-up", "/services/computer-diagnostics"], ["Virus & Malware Removal", "/services/virus-removal"], ["Wireless Printer Setup", "/services/printer-setup"]]}/><FooterColumn title="Online Channels" links={[["24/7 Live Agent Chat", "/remote-support"], ["Enter Agent Session Code", "/remote-support"], ["Send Technical Inquiry", "/contact"], ["Terms & Support Policies", "/terms"], ["Privacy Policy", "/privacy"]]}/><FooterColumn title="Protection & Total Support" links={[["Total Tech Protection Plan", "/membership"], ["Unlimited Tech Coverage", "/membership"], ["Apple & Samsung Diagnostics", "/devices/phones"], ["Chat with a Specialist", "/remote-support"]]}/></div></div><div className="mt-14 flex flex-col gap-3 border-t border-slate-800 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 {siteConfig.name}. All rights reserved.</span><span><Link href="/terms" className="mr-4 hover:text-blue-300">Terms & Conditions</Link><Link href="/privacy" className="hover:text-blue-300">Privacy Policy</Link></span></div></div></footer> }
-function FooterColumn({ title, links }: { title: string; links: readonly (readonly [string, string])[] }) { return <div><h3 className="text-sm font-bold text-white">{title}</h3><div className="mt-4 flex flex-col gap-3">{links.map(([label, href]) => <Link href={href} key={label} className="text-sm transition hover:text-blue-300">{label}</Link>)}</div></div> }
-
-export function PageFrame({ children }: { children: React.ReactNode }) { return <div className="min-h-screen bg-white text-slate-900"><Header/><main>{children}</main><Footer/></div> }
-export function PageHero({ eyebrow = "Official Support Center", title, description }: { eyebrow?: string; title: string; description: string }) { return <section className="bg-slate-50 px-5 py-20 lg:px-8"><div className="mx-auto max-w-4xl text-center"><div className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-blue-600">{eyebrow}</div><h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">{title}</h1><p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">{description}</p></div></section> }
-export function Cta() { return <section className="px-5 py-20 lg:px-8"><div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 rounded-[2rem] bg-blue-600 p-8 text-white sm:p-12 md:flex-row md:items-center"><div><h2 className="text-3xl font-bold">Need help right now?</h2><p className="mt-3 text-blue-100">Connect with a certified technician online.</p></div><Link href="/remote-support" className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-blue-700">Start Live Chat <ArrowRight className="size-4"/></Link></div></section> }
+export function PageFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      <main>{children}</main>
+    </div>
+  );
+}
+export function PageHero({
+  eyebrow = "Official Support Center",
+  title,
+  description,
+}: {
+  eyebrow?: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <section className="bg-slate-50 px-5 py-20 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <div className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+          {eyebrow}
+        </div>
+        <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">
+          {title}
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+          {description}
+        </p>
+      </div>
+    </section>
+  );
+}
+export function Cta() {
+  return (
+    <section className="px-5 py-20 lg:px-8">
+      <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 rounded-[2rem] bg-blue-600 p-8 text-white sm:p-12 md:flex-row md:items-center">
+        <div>
+          <h2 className="text-3xl font-bold">Need help right now?</h2>
+          <p className="mt-3 text-blue-100">
+            Connect with a certified technician online.
+          </p>
+        </div>
+        <Link
+          href="/remote-support"
+          className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-blue-700"
+        >
+          Start Live Chat <ArrowRight className="size-4" />
+        </Link>
+      </div>
+    </section>
+  );
+}
