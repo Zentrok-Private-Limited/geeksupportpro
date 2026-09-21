@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || "TechAssist",
+  name: process.env.NEXT_PUBLIC_SITE_NAME || "Geek Online",
   description: "24/7 expert technical support from certified technicians.",
 }
 
