@@ -11,16 +11,16 @@ import {
   ListOrdered, 
   ShieldCheck, 
   MessageSquare, 
-  KeyRound, 
   ArrowRight,
   ChevronDown
 } from "lucide-react";
+import { services } from "@/data/site-content";
 
 export default function SchedulePage() {
-  const [deviceCategory, setDeviceCategory] = useState("Select Device Type");
-  const [brand, setBrand] = useState("");
+  const [selectedService, setSelectedService] = useState("Select IT Service Area");
+  const [deviceDetails, setDeviceDetails] = useState("");
   const [sessionType, setSessionType] = useState<"screen-share" | "phone">("screen-share");
-  const [selectDate, setSelectDate] = useState("21-09-2026");
+  const [selectDate, setSelectDate] = useState("22-09-2026");
   const [timeSlot, setTimeSlot] = useState("Immediate (Next Available Agent - < 5 mins)");
   const [issue, setIssue] = useState("");
   const [fullName, setFullName] = useState("");
@@ -35,7 +35,7 @@ export default function SchedulePage() {
 
   return (
     <PageFrame>
-      {/* Blue Hero Banner matching ss132 */}
+      {/* Blue Hero Banner */}
       <section className="bg-[#0754c7] px-5 py-12 text-white lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div>
@@ -43,21 +43,21 @@ export default function SchedulePage() {
               ⚡ 24/7 REMOTE SUPPORT RESERVATION
             </div>
             <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Schedule a Remote Support Session
+              Schedule a Business IT Support Session
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
-              Book a reserved time slot with a certified technician for fast online diagnostics, virus removal, printer setup, and system tune-up.
+              Book a reserved time slot with a certified technician for workplace IT, network setup, software configuration, cloud & email, and security guidance.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Link
-              href="/remote-support"
+              href="/support"
               className="inline-flex items-center gap-2 rounded bg-yellow-300 px-5 py-3 text-sm font-bold text-blue-950 transition-opacity hover:opacity-90"
             >
               ⚡ Instant Connect Now
             </Link>
             <Link
-              href="/remote-support"
+              href="/support"
               className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
             >
               💬 24/7 Live Chat
@@ -67,7 +67,7 @@ export default function SchedulePage() {
       </section>
 
       {/* Main Layout Area */}
-      <section className="bg-white px-5. py-14 lg:px-8">
+      <section className="bg-white px-5 py-14 lg:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Left Form Column (7 cols) */}
           <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 lg:col-span-7">
@@ -76,58 +76,49 @@ export default function SchedulePage() {
                 Reserve Remote Technician
               </h2>
               <p className="mt-1 text-sm text-slate-600">
-                Enter your device information and convenient time to receive dedicated online support.
+                Choose your IT service area and convenient time to receive dedicated business support.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-8">
-              {/* Step 1: Device & Brand */}
+              {/* Step 1: Service Area & Device/System Info */}
               <div>
                 <div className="flex items-center gap-2.5">
                   <span className="grid size-6 place-items-center rounded-full bg-[#0754c7] text-xs font-bold text-white">
                     1
                   </span>
                   <h3 className="text-base font-extrabold text-slate-950">
-                    DEVICE &amp; BRAND
+                    IT SERVICE AREA &amp; SYSTEM
                   </h3>
                 </div>
 
                 <div className="mt-4 grid gap-5 sm:grid-cols-2">
                   <label className="text-sm font-bold text-slate-900">
-                    Device Category *
+                    Business IT Service Area *
                     <div className="relative mt-2">
                       <select
-                        value={deviceCategory}
-                        onChange={(e) => setDeviceCategory(e.target.value)}
+                        value={selectedService}
+                        onChange={(e) => setSelectedService(e.target.value)}
                         className="w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-normal text-slate-800 focus:border-[#0754c7] focus:outline-none"
                       >
-                        <option value="Select Device Type">Select Device Type</option>
-                        <option value="Windows Laptop / Desktop PC">Windows Laptop / Desktop PC</option>
-                        <option value="Apple MacBook / iMac / Mac mini">Apple MacBook / iMac / Mac mini</option>
-                        <option value="Wireless Printer / Scanner (HP, Epson, Canon, Brother)">
-                          Wireless Printer / Scanner (HP, Epson, Canon, Brother)
-                        </option>
-                        <option value="Wi-Fi Router & Home Network (eero, Netgear, ASUS)">
-                          Wi-Fi Router &amp; Home Network (eero, Netgear, ASUS)
-                        </option>
-                        <option value="Email (Outlook/Gmail) & Microsoft 365 Software">
-                          Email (Outlook/Gmail) &amp; Microsoft 365 Software
-                        </option>
-                        <option value="External Hard Drive & Cloud Storage">
-                          External Hard Drive &amp; Cloud Storage
-                        </option>
+                        <option value="Select IT Service Area">Select IT Service Area</option>
+                        {services.map((s) => (
+                          <option key={s.slug} value={s.title}>
+                            {s.title}
+                          </option>
+                        ))}
                       </select>
                       <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
                     </div>
                   </label>
 
                   <label className="text-sm font-bold text-slate-900">
-                    Brand / Manufacturer *
+                    Device / Software Details *
                     <input
                       type="text"
-                      placeholder="e.g. Apple, Dell, HP, Lenovo, ASUS, Acer, Canon"
-                      value={brand}
-                      onChange={(e) => setBrand(e.target.value)}
+                      placeholder="e.g. Dell Workstation, Microsoft 365, eero Pro"
+                      value={deviceDetails}
+                      onChange={(e) => setDeviceDetails(e.target.value)}
                       className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-normal text-slate-800 placeholder:text-slate-400 focus:border-[#0754c7] focus:outline-none"
                     />
                   </label>
@@ -271,7 +262,7 @@ export default function SchedulePage() {
                     <textarea
                       required
                       rows={4}
-                      placeholder="Describe the technical issue (e.g. computer infected with pop-up virus, wireless printer offline, slow boot time, Outlook password sync error)..."
+                      placeholder="Describe the technical issue (e.g. business workstation network sync failure, cloud email permissions, security policy review)..."
                       value={issue}
                       onChange={(e) => setIssue(e.target.value)}
                       className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-normal text-slate-800 placeholder:text-slate-400 focus:border-[#0754c7] focus:outline-none"
@@ -318,7 +309,7 @@ export default function SchedulePage() {
                 </div>
               </div>
 
-              {/* Bottom security strip & button matching ss133 */}
+              {/* Bottom security strip & button */}
               <div className="flex flex-col items-start justify-between gap-4 border-t border-slate-100 pt-6 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2 text-xs font-medium text-slate-600">
                   <Lock className="size-4 text-slate-500" />
@@ -354,7 +345,7 @@ export default function SchedulePage() {
                 <div className="flex items-start gap-3">
                   <Check className="mt-0.5 size-4 shrink-0 text-[#0754c7]" />
                   <div>
-                    <span className="font-bold text-slate-950">Device Powered On:</span> Keep your laptop connected to charger.
+                    <span className="font-bold text-slate-950">Device Powered On:</span> Keep your laptop/workstation connected to charger.
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -379,7 +370,7 @@ export default function SchedulePage() {
               </p>
             </div>
 
-            {/* Box 3: Need Immediate Help? Dark Box matching ss132/133 */}
+            {/* Box 3: Need Immediate Help? */}
             <div className="rounded-3xl bg-[#062b7b] p-7 text-center text-white shadow-sm">
               <div className="mx-auto grid size-12 place-items-center rounded-2xl bg-blue-900/60 text-yellow-300">
                 <MessageSquare className="size-6" />
@@ -392,7 +383,7 @@ export default function SchedulePage() {
               </p>
               <div className="mt-6">
                 <Link
-                  href="/remote-support"
+                  href="/support"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-yellow-300 px-6 py-3.5 text-sm font-extrabold text-blue-950 transition-opacity hover:opacity-90"
                 >
                   Start Live Chat

@@ -1,15 +1,16 @@
 import Link from "next/link";
-import { PageFrame, PageHero } from "@/components/site-shell";
+import { PageFrame } from "@/components/site-shell";
 import { 
-  Monitor, 
-  ShieldAlert, 
-  Smartphone, 
-  Wifi, 
-  Printer, 
+  Building2, 
+  Network, 
+  Settings, 
+  Cloud, 
+  Lock, 
+  Server, 
   HardDrive, 
-  Tv, 
+  Monitor, 
   Wrench, 
-  Mail, 
+  HelpCircle,
   Calendar, 
   MonitorUp, 
   MessageSquare, 
@@ -17,143 +18,161 @@ import {
   Check
 } from "lucide-react";
 
-export const metadata = { title: "Repair & Tech Services | Support Center" };
+export const metadata = { title: "Business IT Services | Support Center" };
 
 const coreServices = [
   {
-    tag: "Remote / In-Store",
-    title: "Computer Diagnostics & Tune-up",
-    description: "Full hardware diagnostics, operating system reinstallation (Windows & Mac), slow PC optimization, and crashing resolution.",
+    tag: "Remote / On-Site",
+    title: "Workplace IT",
+    description: "Business workstation and workplace assistance, OS deployment, hardware support, and daily employee tech troubleshooting.",
     bullets: [
-      "Blue screen & freeze troubleshooting",
-      "Fast startup speed optimization",
-      "SSD & RAM upgrade diagnostics",
+      "Workstation setup & optimization",
+      "Employee hardware & OS support",
+      "Peripheral & docking station pairing",
     ],
-    ctaText: "Get Remote Support",
+    ctaText: "Request Workplace Support",
     ctaHref: "/remote-support",
-    icon: Monitor,
+    icon: Building2,
   },
   {
-    tag: "Instant Fix",
-    title: "Virus & Malware Removal",
-    description: "Complete eradication of Trojans, spyware, annoying pop-up ads, browser hijackers, and malicious background programs.",
+    tag: "Infrastructure",
+    title: "Network Services",
+    description: "Business network setup, secure enterprise Wi-Fi configuration, switch/router management, and connectivity diagnostics.",
     bullets: [
-      "Deep spyware & ransomware scan",
-      "Malicious extension & adware cleanup",
-      "Antivirus & firewall security setup",
+      "Enterprise router & switch setup",
+      "Secure Wi-Fi & VLAN configuration",
+      "Network latency & coverage troubleshooting",
     ],
-    ctaText: "Start Virus Removal",
+    ctaText: "Setup Business Network",
     ctaHref: "/remote-support",
-    icon: ShieldAlert,
+    icon: Network,
   },
   {
-    tag: "Apple Authorized",
-    title: "Apple & Samsung Repair",
-    description: "Certified Apple & Samsung device repair center. Genuine parts, hardware diagnostics, screen and battery fixes.",
+    tag: "Software",
+    title: "Software Configuration",
+    description: "Business software setup, multi-user license deployment, productivity suite installation, and compatibility configuration.",
     bullets: [
-      "iPhone & iPad screen & battery replacement",
-      "Samsung Galaxy screen repairs",
-      "iCloud & device data backup transfer",
+      "Enterprise app & license deployment",
+      "Productivity suite configuration",
+      "Cross-platform compatibility fixes",
     ],
-    ctaText: "Get Device Support",
+    ctaText: "Configure Software",
     ctaHref: "/remote-support",
-    icon: Smartphone,
+    icon: Settings,
   },
   {
-    tag: "Remote / In-Home",
-    title: "Wi-Fi, Mesh & Smart Home Setup",
-    description: "Whole-home Wi-Fi optimization, mesh router setup (eero, Orbi, Nest), smart cameras, Ring doorbells, and network encryption.",
+    tag: "Cloud / M365",
+    title: "Cloud & Email",
+    description: "Business cloud and email environments, Microsoft 365/Google Workspace administration, identity sync, and access control.",
     bullets: [
-      "Mesh network router configuration",
-      "Smart security camera connection",
-      "Slow Wi-Fi speed & latency troubleshooting",
+      "Tenant & domain email setup",
+      "Cloud storage & permission policies",
+      "Account migration & sync troubleshooting",
     ],
-    ctaText: "Setup Wi-Fi Remotely",
+    ctaText: "Manage Cloud & Email",
     ctaHref: "/remote-support",
-    icon: Wifi,
+    icon: Cloud,
   },
   {
-    tag: "Remote Connect",
-    title: "Wireless Printers & Driver Setup",
-    description: "Fix offline printer errors, install updated manufacturer drivers (HP, Canon, Epson, Brother), and configure wireless scanning utilities.",
+    tag: "Security",
+    title: "Security Guidance",
+    description: "Security configuration and best practices, endpoint protection policies, compliance hardening, and vulnerability awareness.",
     bullets: [
-      "Printer Wi-Fi network pairing",
-      "Print queue offline error fix",
-      "Scan-to-computer setup",
+      "Endpoint security baseline setup",
+      "Access control & MFA policy guidance",
+      "Security best-practice auditing",
     ],
-    ctaText: "Fix Printer Remotely",
+    ctaText: "Review Security",
     ctaHref: "/remote-support",
-    icon: Printer,
+    icon: Lock,
   },
   {
-    tag: "Lab & Remote",
-    title: "Data Recovery & Cloud Backup",
-    description: "Assistance with recovering lost files, configuring automated cloud backup (OneDrive, Google Drive, iCloud), and external hard drive setup.",
+    tag: "Administration",
+    title: "System Administration",
+    description: "Routine business system administration, server health monitoring, user account lifecycle management, and policy enforcement.",
     bullets: [
-      "Lost file & document recovery triage",
-      "Automated daily backup schedule",
-      "New PC data migration transfer",
+      "User account provisioning & removal",
+      "System health & log monitoring",
+      "Group policy & resource management",
     ],
-    ctaText: "Start Data Support",
+    ctaText: "Start System Admin",
+    ctaHref: "/remote-support",
+    icon: Server,
+  },
+  {
+    tag: "Data & Continuity",
+    title: "Data & Backup",
+    description: "Business backup and data workflows, automated offsite/local backup policies, restoration testing, and migration strategies.",
+    bullets: [
+      "Automated daily/weekly backup schedules",
+      "Disaster recovery restoration testing",
+      "Secure corporate data migration",
+    ],
+    ctaText: "Configure Backup",
     ctaHref: "/remote-support",
     icon: HardDrive,
   },
   {
-    tag: "In-Home & Remote",
-    title: "TV Mounting & Audio Setup",
-    description: "Expert consultation for TV mounting (up to 98\"+), soundbar audio calibration, streaming app installation, and HDMI routing.",
+    tag: "24/7 Remote",
+    title: "Remote IT Services",
+    description: "Remote assistance for business environments, rapid-response triage, and live session troubleshooting across workstations.",
     bullets: [
-      "Smart TV streaming apps setup",
-      "Soundbar & home theater tuning",
-      "In-home technician dispatch scheduling",
+      "Immediate remote session triage",
+      "Multi-device remote diagnostic support",
+      "After-hours operational continuity",
     ],
-    ctaText: "Get TV/Audio Support",
+    ctaText: "Connect Remotely",
     ctaHref: "/remote-support",
-    icon: Tv,
+    icon: Monitor,
   },
   {
-    tag: "Appliance Help",
-    title: "Major Appliance Repair",
-    description: "Diagnostic support and technician scheduling for refrigerators, washing machines, dryers, dishwashers, and ovens across all major brands.",
+    tag: "Maintenance",
+    title: "IT Maintenance",
+    description: "Scheduled maintenance for business systems, patch management, firmware updates, and proactive performance tuning.",
     bullets: [
-      "Appliance error code diagnosis",
-      "Factory-authorized parts verification",
-      "In-home technician appointment booking",
+      "Scheduled OS & software patch rollouts",
+      "Hardware health & storage audits",
+      "Proactive system optimization",
     ],
-    ctaText: "Get Appliance Support",
+    ctaText: "Schedule Maintenance",
     ctaHref: "/schedule-repair",
     icon: Wrench,
   },
   {
-    tag: "24/7 Live",
-    title: "Email & Microsoft 365 Support",
-    description: "Resolve email password synchronization errors, set up Microsoft 365 Office apps, configure cloud storage, and fix account logins.",
+    tag: "Advisory",
+    title: "IT Consultation",
+    description: "Technology planning for organizations, infrastructure scaling roadmaps, vendor stack evaluation, and digital workflow strategy.",
     bullets: [
-      "Outlook, Apple Mail & Gmail setup",
-      "Office license & app activation",
-      "Account login & password recovery",
+      "Infrastructure growth & scaling planning",
+      "Software stack & cost efficiency review",
+      "Security & operational roadmap alignment",
     ],
-    ctaText: "Start Software Support",
-    ctaHref: "/remote-support",
-    icon: Mail,
+    ctaText: "Book Consultation",
+    ctaHref: "/schedule-repair",
+    icon: HelpCircle,
   },
 ];
 
 export default function SupportPage() {
   return (
     <PageFrame>
-      {/* Hero Section matching ss129 */}
+      {/* Compliance Disclaimer Banner */}
+      <div className="bg-slate-100 border-b border-slate-200 px-5 py-3 text-center text-xs text-slate-600 lg:px-8">
+        Business-only service: Our advertised IT services are intended for organizations and business clients. This website does not represent affiliation with, endorsement by, or authorization from any computer, software, printer, cloud, or technology manufacturer.
+      </div>
+
+      {/* Hero Section matching B2B positioning */}
       <section className="bg-[#0754c7] px-5 py-14 text-white lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded bg-yellow-300 px-3 py-1 text-xs font-extrabold text-blue-950">
-              ★ CERTIFIED SERVICES
+              ★ BUSINESS IT SERVICES
             </div>
             <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Tech Support &amp; Repair Services
+              Technology support for your business
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
-              Diagnostics, repairs, and technical setup for computers, phones, TVs, home networks, and appliances with genuine parts and certified technicians.
+              Professional IT services for organizations, offices and business teams. Get help with workplace technology, networks, software configuration, security practices and ongoing IT administration.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0">
@@ -161,13 +180,13 @@ export default function SupportPage() {
               href="/schedule-repair"
               className="inline-flex items-center gap-2 rounded bg-yellow-300 px-5 py-3 text-sm font-bold text-blue-950 transition-opacity hover:opacity-90"
             >
-              <Calendar className="size-4" /> Schedule a Repair
+              <Calendar className="size-4" /> Request IT Assistance
             </Link>
             <Link
               href="/remote-support"
               className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
             >
-              <MonitorUp className="size-4" /> 24/7 Remote Help
+              <MonitorUp className="size-4" /> Remote IT Services
             </Link>
           </div>
         </div>
@@ -178,10 +197,10 @@ export default function SupportPage() {
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-slate-950 sm:text-4xl">
-              Our Core Support Capabilities
+              Business IT Service Capabilities
             </h2>
             <p className="mt-3 text-sm text-slate-600 sm:text-base">
-              Select any technical category below to receive instant remote assistance or service center diagnostics.
+              Choose a service area to learn what is included and how our business clients can get started.
             </p>
           </div>
 
@@ -235,20 +254,20 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Action / Connect Strip from ss131 */}
-      <section className="bg-slate-50 px-5. py-16 lg:px-8 border-t border-gray-200">
+      {/* Action / Connect Strip */}
+      <section className="bg-slate-50 px-5 py-16 lg:px-8 border-t border-gray-200">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-12">
           {/* Left Box: Live Agent Online */}
           <div className="flex flex-col justify-between rounded-2xl bg-[#062b7b] p-8 text-white lg:col-span-7">
             <div>
               <span className="mb-3 inline-block rounded bg-yellow-300 px-3 py-1 text-xs font-extrabold uppercase text-blue-950">
-                INSTANT ONLINE FIX
+                REMOTE BUSINESS ASSISTANCE
               </span>
               <h3 className="text-2xl font-extrabold sm:text-3xl">
-                Connect with a Live Agent Online
+                Remote assistance for business environments
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-blue-100 sm:text-base">
-                Resolve computer freezes, remove malware, install printer drivers, and configure software directly from your home.
+                Connect with our engineering team for immediate workstation troubleshooting, cloud configuration, and network support.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -262,7 +281,7 @@ export default function SupportPage() {
                 href="/remote-support"
                 className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
               >
-                <MessageSquare className="size-4" /> Start 24/7 Chat
+                <MessageSquare className="size-4" /> Contact Our Team
               </Link>
             </div>
           </div>
@@ -271,13 +290,13 @@ export default function SupportPage() {
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-8 text-slate-900 lg:col-span-5">
             <div>
               <span className="mb-3 inline-block rounded bg-blue-50 px-3 py-1 text-xs font-extrabold uppercase text-[#0754c7]">
-                SERVICE RESERVATION
+                ORGANIZATION ARRANGEMENTS
               </span>
               <h3 className="text-2xl font-extrabold text-slate-950 sm:text-3xl">
-                Schedule a Repair Appointment
+                Flexible business service plans
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-                Book an in-person diagnostic at our service center or request certified in-home technicians for TVs and major appliances.
+                Flexible service arrangements for organizations that need one-time assistance, scheduled maintenance, or ongoing IT administration. Service scope and pricing are provided before work begins.
               </p>
             </div>
             <div className="mt-8">
@@ -285,7 +304,7 @@ export default function SupportPage() {
                 href="/schedule-repair"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#062b7b] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-blue-900"
               >
-                Book Repair Appointment <ArrowRight className="size-4" />
+                Explore Plans &amp; Pricing <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>

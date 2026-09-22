@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { brandInitials, navItems, siteConfig } from "@/lib/site-config";
 import { Shield, ArrowRight, MessageSquare, CircleDot } from "lucide-react";
+import { services } from "@/data/site-content";
 
 function Logo() {
   return (
@@ -65,8 +66,6 @@ function Footer() {
                 <Link href="/services" className="hover:text-slate-900">Expert Tech Services</Link>
                 <Link href="/remote-support" className="hover:text-slate-900">24/7 Remote Screen Share</Link>
                 <Link href="/schedule-repair" className="hover:text-slate-900">Schedule Remote Session</Link>
-                <Link href="/services" className="hover:text-slate-900">PC Diagnostics &amp; Tune-up</Link>
-                <Link href="/services" className="hover:text-slate-900">Virus &amp; Malware Removal</Link>
                 <Link href="/services" className="hover:text-slate-900">Wireless Printer Setup</Link>
               </div>
             </div>
@@ -88,18 +87,22 @@ function Footer() {
               </div>
             </div>
 
-            {/* PROTECTION & TOTAL SUPPORT (3 cols) */}
             <div className="lg:col-span-3">
-              <h3 className="text-xs font-extrabold tracking-wider text-slate-900 uppercase">
-                PROTECTION &amp; TOTAL SUPPORT
-              </h3>
-              <div className="mt-4 flex flex-col gap-2.5 text-sm">
-                <Link href="/membership" className="hover:text-slate-900">Total Tech Protection Plan</Link>
-                <Link href="/membership" className="hover:text-slate-900">Unlimited Tech Coverage</Link>
-                <Link href="/services" className="hover:text-slate-900">Apple &amp; Samsung Diagnostics</Link>
-                <Link href="/remote-support" className="hover:text-slate-900">Chat with a Specialist</Link>
-              </div>
-            </div>
+      <h3 className="text-xs font-extrabold tracking-wider text-slate-900 uppercase">
+        BUSINESS IT SERVICES
+      </h3>
+      <div className="mt-4 flex flex-col gap-2.5 text-sm text-slate-600">
+        {services.slice(0, 5).map(({ slug, title }) => (
+          <Link
+            key={slug}
+            href="/support"
+            className="transition-colors hover:text-slate-900 truncate"
+          >
+            {title}
+          </Link>
+        ))}
+      </div>
+    </div>
 
             {/* CERTIFIED SUPPORT CARD/COLUMN (3 cols) */}
             <div className="lg:col-span-3">
