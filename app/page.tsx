@@ -213,7 +213,7 @@ export default function HomePage() {
             ★ ENTERPRISE IT SUPPORT MEMBERSHIP
           </div>
           <h2 className="mb-3 text-2xl font-extrabold sm:text-4xl">
-            Business IT Care &amp; SLA Membership
+            Business IT Care
           </h2>
           <p className="mb-6 text-sm leading-relaxed text-blue-100 sm:text-base">
             Get 24/7/365 priority technology support for your organization&apos;s workstations, networks, cloud environments, and security infrastructure.
@@ -271,7 +271,7 @@ export default function HomePage() {
         </div>
       </div>
     </section>
-    
+
         <section className="mx-auto max-w-7xl px-4 py-8">
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8">
             <div className="mb-6 text-center md:text-left">
