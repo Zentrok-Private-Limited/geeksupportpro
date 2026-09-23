@@ -205,6 +205,35 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto mb-10 max-w-3xl text-center">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Business IT Services
+        </h2>
+        <p className="mt-2 text-sm text-slate-500 sm:text-base">
+          Choose a service area to learn what is included and how our business clients can get started.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        {services.map(({ slug, title, description, icon: Icon }) => (
+          <Link
+            key={slug}
+            href="/support"
+            className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all hover:border-blue-400 hover:shadow-md"
+          >
+            <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-blue-50 text-[#0754c7]">
+              <Icon className="size-5" />
+            </div>
+            <h4 className="text-sm font-bold text-slate-900">{title}</h4>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-500 line-clamp-2">
+              {description}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </section>
         
         <section className="border-y border-gray-200 bg-gray-100 px-4 py-12">
       <div className="mx-auto grid max-w-7xl items-center overflow-hidden rounded-2xl bg-[#062b7b] text-white shadow-xl lg:grid-cols-12">
