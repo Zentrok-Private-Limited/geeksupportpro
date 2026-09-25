@@ -206,100 +206,38 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-16">
-      <div className="mx-auto mb-10 max-w-3xl text-center">
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Business IT Services
-        </h2>
-        <p className="mt-2 text-sm text-slate-500 sm:text-base">
-          Choose a service area to learn what is included and how our business clients can get started.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {services.map(({ slug, title, description, icon: Icon }) => (
-          <Link
-            key={slug}
-            href="/support"
-            className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all hover:border-blue-400 hover:shadow-md"
-          >
-            <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-blue-50 text-[#0754c7]">
-              <Icon className="size-5" />
-            </div>
-            <h4 className="text-sm font-bold text-slate-900">{title}</h4>
-            <p className="mt-1.5 text-xs leading-relaxed text-slate-500 line-clamp-2">
-              {description}
+    <section className="max-w-8xl px-6 py-16">
+          <div className="mx-auto mb-12 max-w-7xl text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl">
+              Choose Your Device for Expert Support
+            </h2>
+            <p className="mt-2 mb-6 text-sm text-gray-500 sm:text-base">
+              Certified technicians repair, configure, and protect all major
+              brands regardless of where you bought them.
             </p>
-          </Link>
-        ))}
-      </div>
-    </section>
-        
-        <section className="border-y border-gray-200 bg-gray-100 px-4 py-12">
-      <div className="mx-auto grid max-w-7xl items-center overflow-hidden rounded-2xl bg-[#062b7b] text-white shadow-xl lg:grid-cols-12">
-        <div className="p-8 md:p-12 lg:col-span-8">
-          <div className="mb-4 inline-flex items-center gap-2 rounded bg-yellow-300 px-3 py-1 text-xs font-extrabold text-blue-950">
-            ★ ENTERPRISE IT SUPPORT MEMBERSHIP
+             <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {devices.map(([slug, title, subtitle, Icon]) => (
+              <Link
+                key={slug}
+                href={`/devices/${slug}`}
+                className="group flex min-h-[160px] flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 text-center transition-all hover:border-[#0754c7] hover:bg-[#0754c7]"
+              >
+                <div>
+                  <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-lg bg-blue-50 text-[#0754c7] transition-colors group-hover:bg-white">
+                    <Icon className="size-6" strokeWidth={1.8} />
+                  </div>
+                  <h4 className="text-sm font-semibold text-gray-900 group-hover:text-white">
+                    {title}
+                  </h4>
+                </div>
+                <p className="mt-2 text-xs text-gray-500 group-hover:text-blue-100">
+                  {subtitle}
+                </p>
+              </Link>
+              ))}
           </div>
-          <h2 className="mb-3 text-2xl font-extrabold sm:text-4xl">
-            Business IT Care
-          </h2>
-          <p className="mb-6 text-sm leading-relaxed text-blue-100 sm:text-base">
-            Get 24/7/365 priority technology support for your organization&apos;s workstations, networks, cloud environments, and security infrastructure.
-          </p>
-          <div className="mb-6 grid gap-3 text-sm sm:grid-cols-2">
-            {[
-              "24/7 Priority Enterprise Tech Support",
-              "Workplace & Network Diagnostics Included",
-              "20% Off On-Site & Specialized IT Projects",
-              "Dedicated Account Manager & SLA",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <CircleCheck className="size-4 shrink-0 text-yellow-300" />
-                <span>{item}</span>
-              </div>
-            ))}
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/support"
-              className="rounded bg-yellow-300 px-6 py-3 text-sm font-bold text-blue-950 transition-opacity hover:opacity-90"
-            >
-              Get Enterprise Support
-            </Link>
-            <Link
-              href="/support"
-              className="rounded border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
-            >
-              Chat with an IT Specialist
-            </Link>
-          </div>
-        </div>
-
-        {/* Right Panel matching layout */}
-        <div className="flex flex-col items-center justify-between bg-[#041e54] p-8 text-center lg:col-span-4 lg:h-full lg:justify-center">
-          <div className="my-auto py-6">
-            <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-xl bg-blue-900/60 text-yellow-300">
-              <Shield className="size-6 text-yellow-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white">
-              Certified IT Engineers
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-blue-100">
-              Specialized technicians ready to resolve your business infrastructure challenges.
-            </p>
-          </div>
-          <div className="w-full pt-4">
-            <Link
-              href="/support"
-              className="flex w-full items-center justify-center gap-2 rounded bg-yellow-300 px-6 py-3 text-sm font-bold text-blue-950 transition-opacity hover:opacity-90"
-            >
-              <MessageSquare className="size-4" /> Start Online Chat
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
         <section className="mx-auto max-w-7xl px-4 py-8">
           <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8">

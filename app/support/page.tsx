@@ -1,155 +1,230 @@
 import Link from "next/link";
 import { PageFrame } from "@/components/site-shell";
-import { 
-  Building2, 
-  Network, 
-  Settings, 
-  Cloud, 
-  Lock, 
-  Server, 
-  HardDrive, 
-  Monitor, 
-  Wrench, 
-  HelpCircle,
-  Calendar, 
-  MonitorUp, 
-  MessageSquare, 
+import {
+  Monitor,
+  ShieldAlert,
+  Smartphone,
+  Wifi,
+  Printer,
+  HardDrive,
+  Tv,
+  Wrench,
+  Mail,
+  Calendar,
+  MonitorUp,
+  MessageSquare,
   ArrowRight,
-  Check
+  Check,
 } from "lucide-react";
 
-export const metadata = { title: "Business IT Services | Support Center" };
+export const metadata = { title: "Repair & Tech Services | Support Center" };
 
 const coreServices = [
   {
-    tag: "Remote / On-Site",
-    title: "Workplace IT",
-    description: "Business workstation and workplace assistance, OS deployment, hardware support, and daily employee tech troubleshooting.",
+    tag: "Remote / In-Store",
+
+    title: "Computer Diagnostics & Tune-up",
+
+    description:
+      "Full hardware diagnostics, operating system reinstallation (Windows & Mac), slow PC optimization, and crashing resolution.",
+
     bullets: [
-      "Workstation setup & optimization",
-      "Employee hardware & OS support",
-      "Peripheral & docking station pairing",
+      "Blue screen & freeze troubleshooting",
+
+      "Fast startup speed optimization",
+
+      "SSD & RAM upgrade diagnostics",
     ],
-    ctaText: "Request Workplace Support",
+
+    ctaText: "Get Remote Support",
+
     ctaHref: "/remote-support",
-    icon: Building2,
-  },
-  {
-    tag: "Infrastructure",
-    title: "Network Services",
-    description: "Business network setup, secure enterprise Wi-Fi configuration, switch/router management, and connectivity diagnostics.",
-    bullets: [
-      "Enterprise router & switch setup",
-      "Secure Wi-Fi & VLAN configuration",
-      "Network latency & coverage troubleshooting",
-    ],
-    ctaText: "Setup Business Network",
-    ctaHref: "/remote-support",
-    icon: Network,
-  },
-  {
-    tag: "Software",
-    title: "Software Configuration",
-    description: "Business software setup, multi-user license deployment, productivity suite installation, and compatibility configuration.",
-    bullets: [
-      "Enterprise app & license deployment",
-      "Productivity suite configuration",
-      "Cross-platform compatibility fixes",
-    ],
-    ctaText: "Configure Software",
-    ctaHref: "/remote-support",
-    icon: Settings,
-  },
-  {
-    tag: "Cloud / M365",
-    title: "Cloud & Email",
-    description: "Business cloud and email environments, Microsoft 365/Google Workspace administration, identity sync, and access control.",
-    bullets: [
-      "Tenant & domain email setup",
-      "Cloud storage & permission policies",
-      "Account migration & sync troubleshooting",
-    ],
-    ctaText: "Manage Cloud & Email",
-    ctaHref: "/remote-support",
-    icon: Cloud,
-  },
-  {
-    tag: "Security",
-    title: "Security Guidance",
-    description: "Security configuration and best practices, endpoint protection policies, compliance hardening, and vulnerability awareness.",
-    bullets: [
-      "Endpoint security baseline setup",
-      "Access control & MFA policy guidance",
-      "Security best-practice auditing",
-    ],
-    ctaText: "Review Security",
-    ctaHref: "/remote-support",
-    icon: Lock,
-  },
-  {
-    tag: "Administration",
-    title: "System Administration",
-    description: "Routine business system administration, server health monitoring, user account lifecycle management, and policy enforcement.",
-    bullets: [
-      "User account provisioning & removal",
-      "System health & log monitoring",
-      "Group policy & resource management",
-    ],
-    ctaText: "Start System Admin",
-    ctaHref: "/remote-support",
-    icon: Server,
-  },
-  {
-    tag: "Data & Continuity",
-    title: "Data & Backup",
-    description: "Business backup and data workflows, automated offsite/local backup policies, restoration testing, and migration strategies.",
-    bullets: [
-      "Automated daily/weekly backup schedules",
-      "Disaster recovery restoration testing",
-      "Secure corporate data migration",
-    ],
-    ctaText: "Configure Backup",
-    ctaHref: "/remote-support",
-    icon: HardDrive,
-  },
-  {
-    tag: "24/7 Remote",
-    title: "Remote IT Services",
-    description: "Remote assistance for business environments, rapid-response triage, and live session troubleshooting across workstations.",
-    bullets: [
-      "Immediate remote session triage",
-      "Multi-device remote diagnostic support",
-      "After-hours operational continuity",
-    ],
-    ctaText: "Connect Remotely",
-    ctaHref: "/remote-support",
+
     icon: Monitor,
   },
+
   {
-    tag: "Maintenance",
-    title: "IT Maintenance",
-    description: "Scheduled maintenance for business systems, patch management, firmware updates, and proactive performance tuning.",
+    tag: "Instant Fix",
+
+    title: "Virus & Malware Removal",
+
+    description:
+      "Complete eradication of Trojans, spyware, annoying pop-up ads, browser hijackers, and malicious background programs.",
+
     bullets: [
-      "Scheduled OS & software patch rollouts",
-      "Hardware health & storage audits",
-      "Proactive system optimization",
+      "Deep spyware & ransomware scan",
+
+      "Malicious extension & adware cleanup",
+
+      "Antivirus & firewall security setup",
     ],
-    ctaText: "Schedule Maintenance",
+
+    ctaText: "Start Virus Removal",
+
+    ctaHref: "/remote-support",
+
+    icon: ShieldAlert,
+  },
+
+  {
+    tag: "Apple Authorized",
+
+    title: "Apple & Samsung Repair",
+
+    description:
+      "Certified Apple & Samsung device repair center. Genuine parts, hardware diagnostics, screen and battery fixes.",
+
+    bullets: [
+      "iPhone & iPad screen & battery replacement",
+
+      "Samsung Galaxy screen repairs",
+
+      "iCloud & device data backup transfer",
+    ],
+
+    ctaText: "Get Device Support",
+
+    ctaHref: "/remote-support",
+
+    icon: Smartphone,
+  },
+
+  {
+    tag: "Remote / In-Home",
+
+    title: "Wi-Fi, Mesh & Smart Home Setup",
+
+    description:
+      "Whole-home Wi-Fi optimization, mesh router setup (eero, Orbi, Nest), smart cameras, Ring doorbells, and network encryption.",
+
+    bullets: [
+      "Mesh network router configuration",
+
+      "Smart security camera connection",
+
+      "Slow Wi-Fi speed & latency troubleshooting",
+    ],
+
+    ctaText: "Setup Wi-Fi Remotely",
+
+    ctaHref: "/remote-support",
+
+    icon: Wifi,
+  },
+
+  {
+    tag: "Remote Connect",
+
+    title: "Wireless Printers & Driver Setup",
+
+    description:
+      "Fix offline printer errors, install updated manufacturer drivers (HP, Canon, Epson, Brother), and configure wireless scanning utilities.",
+
+    bullets: [
+      "Printer Wi-Fi network pairing",
+
+      "Print queue offline error fix",
+
+      "Scan-to-computer setup",
+    ],
+
+    ctaText: "Fix Printer Remotely",
+
+    ctaHref: "/remote-support",
+
+    icon: Printer,
+  },
+
+  {
+    tag: "Lab & Remote",
+
+    title: "Data Recovery & Cloud Backup",
+
+    description:
+      "Assistance with recovering lost files, configuring automated cloud backup (OneDrive, Google Drive, iCloud), and external hard drive setup.",
+
+    bullets: [
+      "Lost file & document recovery triage",
+
+      "Automated daily backup schedule",
+
+      "New PC data migration transfer",
+    ],
+
+    ctaText: "Start Data Support",
+
+    ctaHref: "/remote-support",
+
+    icon: HardDrive,
+  },
+
+  {
+    tag: "In-Home & Remote",
+
+    title: "TV Mounting & Audio Setup",
+
+    description:
+      'Expert consultation for TV mounting (up to 98"+), soundbar audio calibration, streaming app installation, and HDMI routing.',
+
+    bullets: [
+      "Smart TV streaming apps setup",
+
+      "Soundbar & home theater tuning",
+
+      "In-home technician dispatch scheduling",
+    ],
+
+    ctaText: "Get TV/Audio Support",
+
+    ctaHref: "/remote-support",
+
+    icon: Tv,
+  },
+
+  {
+    tag: "Appliance Help",
+
+    title: "Major Appliance Repair",
+
+    description:
+      "Diagnostic support and technician scheduling for refrigerators, washing machines, dryers, dishwashers, and ovens across all major brands.",
+
+    bullets: [
+      "Appliance error code diagnosis",
+
+      "Factory-authorized parts verification",
+
+      "In-home technician appointment booking",
+    ],
+
+    ctaText: "Get Appliance Support",
+
     ctaHref: "/schedule-repair",
+
     icon: Wrench,
   },
+
   {
-    tag: "Advisory",
-    title: "IT Consultation",
-    description: "Technology planning for organizations, infrastructure scaling roadmaps, vendor stack evaluation, and digital workflow strategy.",
+    tag: "24/7 Live",
+
+    title: "Email & Microsoft 365 Support",
+
+    description:
+      "Resolve email password synchronization errors, set up Microsoft 365 Office apps, configure cloud storage, and fix account logins.",
+
     bullets: [
-      "Infrastructure growth & scaling planning",
-      "Software stack & cost efficiency review",
-      "Security & operational roadmap alignment",
+      "Outlook, Apple Mail & Gmail setup",
+
+      "Office license & app activation",
+
+      "Account login & password recovery",
     ],
-    ctaText: "Book Consultation",
-    ctaHref: "/schedule-repair",
-    icon: HelpCircle,
+
+    ctaText: "Start Software Support",
+
+    ctaHref: "/remote-support",
+
+    icon: Mail,
   },
 ];
 
@@ -158,7 +233,10 @@ export default function SupportPage() {
     <PageFrame>
       {/* Compliance Disclaimer Banner */}
       <div className="bg-slate-100 border-b border-slate-200 px-5 py-3 text-center text-xs text-slate-600 lg:px-8">
-        Business-only service: Our advertised IT services are intended for organizations and business clients. This website does not represent affiliation with, endorsement by, or authorization from any computer, software, printer, cloud, or technology manufacturer.
+        Business-only service: Our advertised IT services are intended for
+        organizations and business clients. This website does not represent
+        affiliation with, endorsement by, or authorization from any computer,
+        software, printer, cloud, or technology manufacturer.
       </div>
 
       {/* Hero Section matching B2B positioning */}
@@ -172,7 +250,9 @@ export default function SupportPage() {
               Technology support for your business
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
-              Professional IT services for organizations, offices and business teams. Get help with workplace technology, networks, software configuration, security practices and ongoing IT administration.
+              Professional IT services for organizations, offices and business
+              teams. Get help with workplace technology, networks, software
+              configuration, security practices and ongoing IT administration.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0">
@@ -200,7 +280,8 @@ export default function SupportPage() {
               Business IT Service Capabilities
             </h2>
             <p className="mt-3 text-sm text-slate-600 sm:text-base">
-              Choose a service area to learn what is included and how our business clients can get started.
+              Choose a service area to learn what is included and how our
+              business clients can get started.
             </p>
           </div>
 
@@ -267,7 +348,8 @@ export default function SupportPage() {
                 Remote assistance for business environments
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-blue-100 sm:text-base">
-                Connect with our engineering team for immediate workstation troubleshooting, cloud configuration, and network support.
+                Connect with our engineering team for immediate workstation
+                troubleshooting, cloud configuration, and network support.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -296,7 +378,10 @@ export default function SupportPage() {
                 Flexible business service plans
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-                Flexible service arrangements for organizations that need one-time assistance, scheduled maintenance, or ongoing IT administration. Service scope and pricing are provided before work begins.
+                Flexible service arrangements for organizations that need
+                one-time assistance, scheduled maintenance, or ongoing IT
+                administration. Service scope and pricing are provided before
+                work begins.
               </p>
             </div>
             <div className="mt-8">

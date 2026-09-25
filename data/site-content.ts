@@ -47,64 +47,39 @@ export const devices = [
 
 export const services = [
   {
-    slug: "workplace-it",
-    title: "Workplace IT",
-    description: "Business workstation and workplace assistance.",
-    icon: Building2,
-  },
-  {
-    slug: "network-services",
-    title: "Network Services",
-    description: "Business network setup and administration.",
-    icon: Network,
-  },
-  {
-    slug: "software-configuration",
-    title: "Software Configuration",
-    description: "Business software setup and configuration.",
-    icon: Settings,
-  },
-  {
-    slug: "cloud-email",
-    title: "Cloud & Email",
-    description: "Business cloud and email environments.",
-    icon: Cloud,
-  },
-  {
-    slug: "security-guidance",
-    title: "Security Guidance",
-    description: "Security configuration and best practices.",
-    icon: Lock,
-  },
-  {
-    slug: "system-administration",
-    title: "System Administration",
-    description: "Routine business system administration.",
-    icon: Server,
-  },
-  {
-    slug: "data-backup",
-    title: "Data & Backup",
-    description: "Business backup and data workflows.",
-    icon: HardDrive,
-  },
-  {
-    slug: "remote-it-services",
-    title: "Remote IT Services",
-    description: "Remote assistance for business environments.",
-    icon: Monitor,
-  },
-  {
-    slug: "it-maintenance",
-    title: "IT Maintenance",
-    description: "Scheduled maintenance for business systems.",
+    slug: "computer-diagnostics",
+    title: "PC Diagnostics & Tune-up",
+    description:
+      "Boost boot speed, fix freezes, blue screens, and everyday computer issues with a clear diagnostic and practical tune-up.",
     icon: Wrench,
   },
   {
-    slug: "it-consultation",
-    title: "IT Consultation",
-    description: "Technology planning for organizations.",
-    icon: HelpCircle,
+    slug: "virus-removal",
+    title: "Virus, Spyware & Pop-up Removal",
+    description:
+      "Deep-clean your device, remove unwanted software, and help keep threats away with secure remote support.",
+    icon: ShieldCheck,
+  },
+  {
+    slug: "printer-setup",
+    title: "Wireless Printer & Driver Setup",
+    description:
+      "Connect printers, install updated drivers, and get every computer in your home printing reliably.",
+    icon: Printer,
+  },
+  {
+    slug: "wifi-optimization",
+    title: "Wi-Fi & Mesh Network Optimization",
+    description:
+      "Improve coverage, router pairing, security, and speed across your home network.",
+    icon: Wifi,
+  },
+  {
+    slug: "device-repair",
+    title: "Apple & Samsung Device Repairs",
+    description:
+      "Get expert guidance for screen, battery, setup, and genuine-parts diagnostics across leading devices.",
+    icon: Smartphone,
   },
 ];
 
