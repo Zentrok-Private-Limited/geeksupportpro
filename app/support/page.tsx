@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { PageFrame } from "@/components/site-shell";
 import {
@@ -16,8 +17,6 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
-
-export const metadata = { title: "Repair & Tech Services | Support Center" };
 
 const coreServices = [
   {
@@ -231,28 +230,19 @@ const coreServices = [
 export default function SupportPage() {
   return (
     <PageFrame>
-      {/* Compliance Disclaimer Banner */}
-      <div className="bg-slate-100 border-b border-slate-200 px-5 py-3 text-center text-xs text-slate-600 lg:px-8">
-        Business-only service: Our advertised IT services are intended for
-        organizations and business clients. This website does not represent
-        affiliation with, endorsement by, or authorization from any computer,
-        software, printer, cloud, or technology manufacturer.
-      </div>
 
       {/* Hero Section matching B2B positioning */}
       <section className="bg-[#0754c7] px-5 py-14 text-white lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded bg-yellow-300 px-3 py-1 text-xs font-extrabold text-blue-950">
-              ★ BUSINESS IT SERVICES
+              ★ CERTIFIED SERVICES
             </div>
             <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Technology support for your business
+              Tech Support & Repair Services
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
-              Professional IT services for organizations, offices and business
-              teams. Get help with workplace technology, networks, software
-              configuration, security practices and ongoing IT administration.
+             Diagnosis, repairs, and technical setup for computers, phones, TVs, home networks, and appliances with genuine parts and certified technicians.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0">
@@ -260,13 +250,13 @@ export default function SupportPage() {
               href="/schedule-repair"
               className="inline-flex items-center gap-2 rounded bg-yellow-300 px-5 py-3 text-sm font-bold text-blue-950 transition-opacity hover:opacity-90"
             >
-              <Calendar className="size-4" /> Request IT Assistance
+              <Calendar className="size-4" /> Schedule a Repair
             </Link>
             <Link
               href="/remote-support"
               className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
             >
-              <MonitorUp className="size-4" /> Remote IT Services
+              <MonitorUp className="size-4" /> 24/7 Remote Help
             </Link>
           </div>
         </div>
@@ -277,11 +267,10 @@ export default function SupportPage() {
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-slate-950 sm:text-4xl">
-              Business IT Service Capabilities
+              Our Core Support Capabilities
             </h2>
             <p className="mt-3 text-sm text-slate-600 sm:text-base">
-              Choose a service area to learn what is included and how our
-              business clients can get started.
+              Select any technical category below to recieve instant assistance or service center diagnostics.
             </p>
           </div>
 
@@ -342,14 +331,13 @@ export default function SupportPage() {
           <div className="flex flex-col justify-between rounded-2xl bg-[#062b7b] p-8 text-white lg:col-span-7">
             <div>
               <span className="mb-3 inline-block rounded bg-yellow-300 px-3 py-1 text-xs font-extrabold uppercase text-blue-950">
-                REMOTE BUSINESS ASSISTANCE
+                INSTANT ONLINE FIX
               </span>
               <h3 className="text-2xl font-extrabold sm:text-3xl">
-                Remote assistance for business environments
+                Connect with a Live Agent Online
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-blue-100 sm:text-base">
-                Connect with our engineering team for immediate workstation
-                troubleshooting, cloud configuration, and network support.
+                Resolve computer freezes, remove malware, install printer drivers, and configure software directly from your home.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -359,12 +347,16 @@ export default function SupportPage() {
               >
                 Start Remote Session
               </Link>
-              <Link
-                href="/remote-support"
+              <button
+                onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                 className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
               >
-                <MessageSquare className="size-4" /> Contact Our Team
-              </Link>
+                <MessageSquare className="size-4" /> Start 24/7 Chat
+              </button>
             </div>
           </div>
 
@@ -372,16 +364,13 @@ export default function SupportPage() {
           <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-8 text-slate-900 lg:col-span-5">
             <div>
               <span className="mb-3 inline-block rounded bg-blue-50 px-3 py-1 text-xs font-extrabold uppercase text-[#0754c7]">
-                ORGANIZATION ARRANGEMENTS
+                Service Reservation
               </span>
               <h3 className="text-2xl font-extrabold text-slate-950 sm:text-3xl">
-                Flexible business service plans
+                Schedule a Repair Appointment
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-                Flexible service arrangements for organizations that need
-                one-time assistance, scheduled maintenance, or ongoing IT
-                administration. Service scope and pricing are provided before
-                work begins.
+                Book an in-person diagnostic at our service center or request certified in-home technicians for TVs and major appliances.
               </p>
             </div>
             <div className="mt-8">
@@ -389,7 +378,7 @@ export default function SupportPage() {
                 href="/schedule-repair"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#062b7b] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-blue-900"
               >
-                Explore Plans &amp; Pricing <ArrowRight className="size-4" />
+                Book Repair Appointment <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>

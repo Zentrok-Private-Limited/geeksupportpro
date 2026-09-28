@@ -4,28 +4,11 @@ import './globals.css'
 import { siteConfig } from '@/lib/site-config'
 import Footer from '@/components/Footer'
 import { Header } from '@/components/Header'
+import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | Expert Tech Support`,
+  title: "Geek Online | Official Support",
   description: `24/7 expert technical support from ${siteConfig.name}.`,
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
@@ -44,6 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+      <Script
+          src="//code.jivosite.com/widget/vJqYrojBMM" 
+          strategy="afterInteractive"
+        />
         <Header />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

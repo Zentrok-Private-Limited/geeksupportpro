@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { brandInitials, navItems, siteConfig } from "@/lib/site-config";
 import { Shield, ArrowRight, MessageSquare, CircleDot } from "lucide-react";
@@ -37,12 +38,17 @@ function Footer() {
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/remote-support"
+            <button
+              onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
+
               className="inline-flex items-center gap-2 rounded bg-yellow-300 px-5 py-2.5 text-sm font-bold text-black transition-opacity hover:opacity-90"
             >
               <MessageSquare className="size-4 fill-current" /> Start Live Chat
-            </Link>
+            </button>
             <Link
               href="/remote-support"
               className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/20"
@@ -89,20 +95,15 @@ function Footer() {
 
             <div className="lg:col-span-3">
       <h3 className="text-xs font-extrabold tracking-wider text-slate-900 uppercase">
-        BUSINESS IT SERVICES
-      </h3>
-      <div className="mt-4 flex flex-col gap-2.5 text-sm text-slate-600">
-        {services.slice(0, 5).map(({ slug, title }) => (
-          <Link
-            key={slug}
-            href="/support"
-            className="transition-colors hover:text-slate-900 truncate"
-          >
-            {title}
-          </Link>
-        ))}
-      </div>
-    </div>
+                PROTECTION &amp; TOTAL SUPPORT
+              </h3>
+              <div className="mt-4 flex flex-col gap-2.5 text-sm">
+                <Link href="/membership" className="hover:text-slate-900">Total Tech Protection Plan</Link>
+                <Link href="/membership" className="hover:text-slate-900">Unlimited Tech Coverage</Link>
+                <Link href="/services" className="hover:text-slate-900">Apple &amp; Samsung Diagnostics</Link>
+                <Link href="/remote-support" className="hover:text-slate-900">Chat with a Specialist</Link>
+              </div>
+            </div>
 
             {/* CERTIFIED SUPPORT CARD/COLUMN (3 cols) */}
             <div className="lg:col-span-3">
@@ -115,12 +116,16 @@ function Footer() {
               <p className="mt-3 text-xs leading-relaxed text-slate-500">
                 Certified technicians providing fast, secure, 256-bit encrypted online troubleshooting across North America.
               </p>
-              <Link
-                href="/remote-support"
+              <button
+                onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                 className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#0754c7] hover:underline"
               >
                 Start Online Chat Now <ArrowRight className="size-3.5" />
-              </Link>
+              </button>
             </div>
           </div>
 

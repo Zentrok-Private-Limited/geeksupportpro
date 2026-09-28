@@ -106,12 +106,17 @@ export function Header() {
 
           {/* Right action buttons matching image: Live Chat & Remote Support */}
           <div className="order-2 flex items-center gap-2.5 lg:order-3 ml-auto lg:ml-0">
-            <Link
-              href="/remote-support"
-              className="inline-flex items-center gap-1.5 rounded-xl bg-yellow-300 px-4 py-2.5 text-xs font-extrabold text-blue-950 shadow-sm hover:opacity-90 sm:text-sm"
-            >
-              💬 Live Chat
-            </Link>
+            <button
+  type="button"
+  onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
+  className="inline-flex items-center gap-1.5 rounded-xl bg-yellow-300 px-4 py-2.5 text-xs font-extrabold text-blue-950 shadow-sm hover:opacity-90 sm:text-sm"
+>
+  💬 Live Chat
+</button>
             <Link
               href="/remote-support"
               className="hidden rounded-xl border border-white/30 bg-white/10 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/20 sm:inline-flex sm:text-sm items-center gap-1.5"

@@ -31,101 +31,6 @@ function Logo() {
   );
 }
 
-function Header() {
-  const [open, setOpen] = useState(false);
-  const [search, setSearch] = useState("");
-  return (
-    <>
-      <div className="bg-[#062b7b] px-4 py-2 text-center text-xs font-semibold text-white">
-        <span className="text-yellow-300">24/7 LIVE SUPPORT:</span>
-        <span className="mx-2 hidden sm:inline">
-          Certified Tech Support Agents Online
-        </span>
-        <span className="mx-3 hidden sm:inline">|</span>
-        <Link href="/remote-support">Start Live Chat</Link>
-        <span className="mx-2">|</span>
-        <Link href="/remote-support">Enter Session PIN</Link>
-        <span className="mx-2">|</span>
-        <Link href="/services">Tech Services</Link>
-      </div>
-      <header className="border-b border-blue-700 bg-[#0645b5] text-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-5 py-4 lg:px-8">
-          <Logo />
-          <form
-            onSubmit={(event) => event.preventDefault()}
-            className="order-3 flex w-full flex-1 lg:order-2 lg:mx-8 lg:w-auto"
-          >
-            <label className="sr-only" htmlFor="support-search">
-              Search support
-            </label>
-            <div className="flex w-full overflow-hidden rounded-md bg-white">
-              <input
-                id="support-search"
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Search support: Virus clean, PC speed, Printer setup, Email, Mac, Wi-Fi..."
-                className="min-w-0 flex-1 px-4 py-3 text-sm text-slate-900 outline-none"
-              />
-              <button
-                type="submit"
-                aria-label="Search support"
-                className="grid w-12 place-items-center bg-slate-100 text-slate-700"
-              >
-                <Search className="size-4" />
-              </button>
-            </div>
-          </form>
-          <div className="ml-auto flex items-center gap-2">
-            <Link
-              href="/remote-support"
-              className="rounded-md bg-yellow-300 px-4 py-3 text-sm font-bold text-slate-950"
-            >
-              Live Chat
-            </Link>
-            <Link
-              href="/remote-support"
-              className="hidden rounded-md border border-blue-200 px-4 py-3 text-sm font-semibold lg:inline-flex"
-            >
-              Remote Support
-            </Link>
-            <button
-              type="button"
-              onClick={() => setOpen(!open)}
-              aria-label="Toggle navigation"
-              aria-expanded={open}
-              className="grid size-11 place-items-center rounded-md border border-blue-200 lg:hidden"
-            >
-              {open ? <X /> : <Menu />}
-            </button>
-          </div>
-        </div>
-        <nav className="hidden border-t border-blue-700 lg:block">
-          <div className="mx-auto flex max-w-7xl items-center gap-8 px-5 py-3 text-sm font-semibold lg:px-8">
-            {navItems.map(([label, href]) => (
-              <Link key={label} href={href} className="hover:text-yellow-300">
-                {label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-        {open && (
-          <nav className="border-t border-blue-700 px-5 py-3 lg:hidden">
-            {navItems.map(([label, href]) => (
-              <Link
-                key={label}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="block rounded-md px-3 py-3 text-sm font-semibold"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-        )}
-      </header>
-    </>
-  );
-}
 
 function FAQ() {
   const [active, setActive] = useState<number | null>(null);
@@ -318,12 +223,16 @@ export default function HomePage() {
                 >
                   Learn More About Membership
                 </Link>
-                <Link
-                  href="/remote-support"
+                <button
+                  onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                   className="rounded border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
                 >
                   Chat with a Specialist
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -342,12 +251,16 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="w-full pt-4">
-                <Link
-                  href="/remote-support"
+                <button
+                  onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                   className="flex w-full items-center justify-center gap-2 rounded bg-yellow-300 px-6 py-3 text-sm font-bold text-black transition-opacity hover:opacity-90"
                 >
                   <MessageSquare className="size-4" /> Start Online Chat
-                </Link>
+                </button>
               </div>
             </div>
           </div>

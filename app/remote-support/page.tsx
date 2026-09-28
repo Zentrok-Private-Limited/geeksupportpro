@@ -54,12 +54,16 @@ export default function RemoteSupportPage() {
               We Care To Serve Best As We Can
             </h2>
             <div className="pt-2">
-              <Link
-                href="/remote-support"
+              <button
+                onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                 className="inline-flex items-center gap-2 rounded-xl bg-yellow-300 px-8 py-4 text-base font-extrabold text-blue-950 shadow-sm transition-opacity hover:opacity-90"
               >
                 Chat Now
-              </Link>
+              </button>
             </div>
             {/* 3 Step Indicator Strip */}
             <div className="pt-6">

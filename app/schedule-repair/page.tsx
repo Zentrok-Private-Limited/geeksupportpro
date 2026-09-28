@@ -43,10 +43,10 @@ export default function SchedulePage() {
               ⚡ 24/7 REMOTE SUPPORT RESERVATION
             </div>
             <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Schedule a Business IT Support Session
+              Schedule a Remote Support Session
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-blue-100 sm:text-base">
-              Book a reserved time slot with a certified technician for workplace IT, network setup, software configuration, cloud & email, and security guidance.
+              Book a reserved time slot with a certified technician for fast online diagnostics, virus removal, printer setup, and system tune-up.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 shrink-0">
@@ -56,12 +56,16 @@ export default function SchedulePage() {
             >
               ⚡ Instant Connect Now
             </Link>
-            <Link
-              href="/support"
+            <button
+              onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
               className="inline-flex items-center gap-2 rounded border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
             >
               💬 24/7 Live Chat
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -76,7 +80,7 @@ export default function SchedulePage() {
                 Reserve Remote Technician
               </h2>
               <p className="mt-1 text-sm text-slate-600">
-                Choose your IT service area and convenient time to receive dedicated business support.
+                Enter your device information and convenient time to receive dedicated online support.
               </p>
             </div>
 
@@ -88,13 +92,13 @@ export default function SchedulePage() {
                     1
                   </span>
                   <h3 className="text-base font-extrabold text-slate-950">
-                    IT SERVICE AREA &amp; SYSTEM
+                    Device & Brand
                   </h3>
                 </div>
 
                 <div className="mt-4 grid gap-5 sm:grid-cols-2">
                   <label className="text-sm font-bold text-slate-900">
-                    Business IT Service Area *
+                    Device Category *
                     <div className="relative mt-2">
                       <select
                         value={selectedService}
@@ -113,10 +117,10 @@ export default function SchedulePage() {
                   </label>
 
                   <label className="text-sm font-bold text-slate-900">
-                    Device / Software Details *
+                    Brand / Manufacturer *
                     <input
                       type="text"
-                      placeholder="e.g. Dell Workstation, Microsoft 365, eero Pro"
+                      placeholder="e.g. Apple, Dell, HP, Lenovo, ASUS, Acer, Canon"
                       value={deviceDetails}
                       onChange={(e) => setDeviceDetails(e.target.value)}
                       className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-normal text-slate-800 placeholder:text-slate-400 focus:border-[#0754c7] focus:outline-none"
@@ -382,12 +386,16 @@ export default function SchedulePage() {
                 Chat directly with a certified Support Agent right now.
               </p>
               <div className="mt-6">
-                <Link
-                  href="/support"
+                <button
+                  onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-yellow-300 px-6 py-3.5 text-sm font-extrabold text-blue-950 transition-opacity hover:opacity-90"
                 >
                   Start Live Chat
-                </Link>
+                </button>
               </div>
             </div>
           </div>

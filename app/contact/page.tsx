@@ -67,12 +67,16 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <Link
-                  href="/remote-support"
+                <button
+                  onClick={() => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  }}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0754c7] px-5 py-3.5 text-sm font-extrabold text-white transition-opacity hover:opacity-90"
                 >
                   <MessageSquare className="size-4" /> Start Live Chat
-                </Link>
+                </button>
               </div>
             </div>
 
