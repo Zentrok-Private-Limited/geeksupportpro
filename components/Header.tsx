@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Search, 
   Menu, 
@@ -18,17 +19,14 @@ import {
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <div className="grid size-10 place-items-center rounded-xl bg-yellow-300 text-blue-950 shadow-sm">
-        <Headphones className="size-5" />
-      </div>
-      <div className="flex flex-col">
-        <span className="text-lg font-black tracking-tight leading-none text-white">
-          GEEK ONLINE
-        </span>
-        <span className="text-[10px] font-extrabold tracking-widest text-yellow-300">
-          24/7 EXPERT TECH HELP
-        </span>
-      </div>
+      <Image
+    src="/images/Geek_Support_logo.webp"
+    alt="Geek Online"
+    width={150}
+    height={30}
+    className="object-contain"
+    priority
+  />
     </Link>
   );
 }
@@ -51,7 +49,7 @@ export function Header() {
       <div className="bg-[#051c52] px-4 py-2 text-center text-xs font-semibold text-white border-b border-blue-900">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:justify-end text-xs">
           <div className="flex items-center gap-1.5 mr-auto">
-            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="size-4 rounded-full bg-emerald-400 animate-pulse [animation-duration:0.6s]" />
             <span className="text-yellow-300 font-bold">24/7 LIVE SUPPORT:</span>
             <span className="hidden sm:inline text-blue-100">
               Certified Tech Support Agents Online
@@ -67,7 +65,7 @@ export function Header() {
             </Link>
             <span>|</span>
             <Link href="/support" className="hover:text-yellow-300 inline-flex items-center gap-1">
-              ⚡ Tech Services
+              ⚡ Geek Online LLC
             </Link>
           </div>
         </div>

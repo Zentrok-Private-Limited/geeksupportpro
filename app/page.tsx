@@ -13,6 +13,7 @@ import {
   X,
   Shield,
   MessageSquare,
+  ShieldHalf,
 } from "lucide-react";
 import { devices, faqs, services, supportOptions } from "@/data/site-content";
 import { brandInitials, navItems, siteConfig } from "@/lib/site-config";
@@ -86,32 +87,32 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       <main>
         <section className="bg-gradient-to-r from-[#073b99] via-[#0754c7] to-[#00338d] px-6 pb-0 pt-6 text-white sm:pt-8">
-          <div className="mx-auto grid max-w-7xl items-center gap-6 lg:grid-cols-12 lg:gap-8">
-            <div className="py-4 text-center lg:col-span-7 lg:py-8 lg:text-left">
-              <div className="mb-3 inline-flex items-center gap-2 rounded bg-yellow-300 px-3 py-1 text-xs font-extrabold uppercase text-black">
-                <BadgeCheck className="size-4" /> Official Support Center
+          <div className="mx-auto grid h-[550px] max-w-7xl items-center lg:items-start gap-6 lg:grid-cols-12 lg:gap-8">
+            <div className="py-4 lg:mt-18 text-center lg:col-span-7 lg:py-8 lg:text-left">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-yellow-300 px-3 py-1 text-xs lg:text-sm font-bold tracking-wide uppercase text-black">
+                <ShieldHalf className="size-4" /> Official Geek Support Center
               </div>
-              <h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">
+              <h1 className="text-3xl font-extrabold leading-tight lg:text-5xl">
                 How can we help you today?
               </h1>
-              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-blue-100 sm:text-lg lg:mx-0">
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-blue-100 sm:text-lg lg:mx-0 lg:mt-4">
                 Get expert diagnostics, repair appointments, remote assistance,
                 and order support from certified support technicians.
               </p>
             </div>
-            <div className="flex items-end justify-center lg:col-span-5 lg:justify-end">
+            <div className="flex items-end justify-end lg:col-span-5 self-end">
               <Image
                 src="/images/reference-support-agent.png"
                 alt="Support Agent"
                 width={990}
                 height={1528}
-                className="block h-auto max-h-[260px] w-auto object-contain object-bottom sm:max-h-[300px] md:max-h-[340px] lg:max-h-[360px]"
+                className="block h-auto max-h-[260px] w-auto object-contain object-bottom sm:max-h-[300px] md:max-h-[340px] lg:max-h-[500px]"
               />
             </div>
           </div>
         </section>
 
-    <section className="max-w-8xl px-6 py-16">
+        <section className="max-w-8xl px-6 py-16">
           <div className="mx-auto mb-12 max-w-7xl text-center">
             <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-3xl">
               Choose Your Device for Expert Support
@@ -120,27 +121,27 @@ export default function HomePage() {
               Certified technicians repair, configure, and protect all major
               brands regardless of where you bought them.
             </p>
-             <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {devices.map(([slug, title, subtitle, Icon]) => (
-              <Link
-                key={slug}
-                href={`/devices/${slug}`}
-                className="group flex min-h-[160px] flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 text-center transition-all hover:border-[#0754c7] hover:bg-[#0754c7]"
-              >
-                <div>
-                  <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-lg bg-blue-50 text-[#0754c7] transition-colors group-hover:bg-white">
-                    <Icon className="size-6" strokeWidth={1.8} />
+            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {devices.map(([slug, title, subtitle, Icon]) => (
+                <Link
+                  key={slug}
+                  href={`/devices/${slug}`}
+                  className="group flex min-h-[160px] flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 text-center transition-all hover:border-[#0754c7] hover:bg-[#0754c7]"
+                >
+                  <div>
+                    <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-lg bg-blue-50 text-[#0754c7] transition-colors group-hover:bg-white">
+                      <Icon className="size-6" strokeWidth={1.8} />
+                    </div>
+                    <h4 className="text-sm font-semibold text-gray-900 group-hover:text-white">
+                      {title}
+                    </h4>
                   </div>
-                  <h4 className="text-sm font-semibold text-gray-900 group-hover:text-white">
-                    {title}
-                  </h4>
-                </div>
-                <p className="mt-2 text-xs text-gray-500 group-hover:text-blue-100">
-                  {subtitle}
-                </p>
-              </Link>
+                  <p className="mt-2 text-xs text-gray-500 group-hover:text-blue-100">
+                    {subtitle}
+                  </p>
+                </Link>
               ))}
-          </div>
+            </div>
           </div>
         </section>
 
@@ -225,10 +226,10 @@ export default function HomePage() {
                 </Link>
                 <button
                   onClick={() => {
-    if (typeof window !== "undefined" && window.jivo_api) {
-      window.jivo_api.open();
-    }
-  }}
+                    if (typeof window !== "undefined" && window.jivo_api) {
+                      window.jivo_api.open();
+                    }
+                  }}
                   className="rounded border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
                 >
                   Chat with a Specialist
@@ -253,10 +254,10 @@ export default function HomePage() {
               <div className="w-full pt-4">
                 <button
                   onClick={() => {
-    if (typeof window !== "undefined" && window.jivo_api) {
-      window.jivo_api.open();
-    }
-  }}
+                    if (typeof window !== "undefined" && window.jivo_api) {
+                      window.jivo_api.open();
+                    }
+                  }}
                   className="flex w-full items-center justify-center gap-2 rounded bg-yellow-300 px-6 py-3 text-sm font-bold text-black transition-opacity hover:opacity-90"
                 >
                   <MessageSquare className="size-4" /> Start Online Chat
