@@ -26,6 +26,7 @@ import {
   Server,
   HardDrive,
   HelpCircle,
+  Shield,
 } from "lucide-react";
 
 export const devices = [
@@ -38,6 +39,7 @@ export const devices = [
   ["wifi", "Wi-Fi & Networks", "Mesh • Routers • Speed", Wifi],
   ["printers", "Printers & Setup", "Wireless • Drivers • Setup", Printer],
   ["gaming", "Gaming Consoles", "PS5 • Xbox • Switch", Gamepad2],
+  ["virus", "Virus & Security", "Spyware • Deep Clean", Shield],
   ["data-recovery", "Data Recovery", "HDD • SSD • Backup", Database],
   ["car-audio", "Car Electronics", "Dash Cams • Sound • GPS", Car],
   ["wearables", "Smart Watches", "Apple Watch • Galaxy • Sync", Watch],

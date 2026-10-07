@@ -86,8 +86,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <main>
-        <section className="bg-gradient-to-r from-[#073b99] via-[#0754c7] to-[#00338d] px-6 pb-0 pt-6 text-white sm:pt-8">
-          <div className="mx-auto grid h-[550px] max-w-7xl items-center lg:items-start gap-6 lg:grid-cols-12 lg:gap-8">
+        <section className="bg-gradient-to-r from-[#073b99] via-[#0754c7] to-[#00338d] px-6 pb-0 pt-6 text-white lg:pt-8">
+          <div className="mx-auto grid max-w-7xl items-center lg:items-start gap-6 lg:grid-cols-12 lg:gap-8">
             <div className="py-4 lg:mt-18 text-center lg:col-span-7 lg:py-8 lg:text-left">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-yellow-300 px-3 py-1 text-xs lg:text-sm font-bold tracking-wide uppercase text-black">
                 <ShieldHalf className="size-4" /> Official Geek Support Center
@@ -100,13 +100,13 @@ export default function HomePage() {
                 and order support from certified support technicians.
               </p>
             </div>
-            <div className="flex items-end justify-end lg:col-span-5 self-end">
+            <div className="flex items-end justify-center lg:col-span-5">
               <Image
                 src="/images/reference-support-agent.png"
                 alt="Support Agent"
                 width={990}
                 height={1528}
-                className="block h-auto max-h-[260px] w-auto object-contain object-bottom sm:max-h-[300px] md:max-h-[340px] lg:max-h-[500px]"
+                className="block h-auto max-h-[260px] w-auto object-contain object-bottom sm:max-h-[300px] md:max-h-[340px] lg:max-h-[400px]"
               />
             </div>
           </div>
