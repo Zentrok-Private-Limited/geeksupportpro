@@ -100,7 +100,7 @@ export default function HomePage() {
                 and order support from certified support technicians.
               </p>
             </div>
-            <div className="flex items-end justify-center lg:col-span-5">
+            <div className="flex items-end justify-center lg:justify-end lg:col-span-5">
               <Image
                 src="/images/reference-support-agent.png"
                 alt="Support Agent"
