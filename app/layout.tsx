@@ -31,10 +31,8 @@ export default function RootLayout({
           src="//code.jivosite.com/widget/vJqYrojBMM" 
           strategy="afterInteractive"
         />
-        <Header />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
-        <Footer />
       </body>
     </html>
   )

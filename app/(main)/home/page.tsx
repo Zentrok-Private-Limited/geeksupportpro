@@ -5,18 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowRight,
-  BadgeCheck,
   ChevronDown,
   CircleCheck,
-  Menu,
-  Search,
-  X,
   Shield,
   MessageSquare,
   ShieldHalf,
 } from "lucide-react";
 import { devices, faqs, services, supportOptions } from "@/data/site-content";
-import { brandInitials, navItems, siteConfig } from "@/lib/site-config";
+import { brandInitials, siteConfig } from "@/lib/site-config";
 
 function Logo() {
   return (
