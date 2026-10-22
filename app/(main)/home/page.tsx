@@ -236,16 +236,7 @@ export default function HomePage() {
             {/* Updated Right Panel matching the screenshot layout (shield icon above text, yellow button at bottom) */}
             <div className="flex flex-col items-center justify-between bg-[#041e54] p-8 text-center lg:col-span-4 lg:h-full lg:justify-center">
               <div className="my-auto py-6">
-                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-xl bg-blue-900/60 text-yellow-300">
-                  <Shield className="size-6 text-yellow-300" />
-                </div>
-                <h3 className="text-xl font-bold text-white">
-                  Certified Tech Experts
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-blue-100">
-                  Over 20,000 certified technicians ready to assist you
-                  nationwide.
-                </p>
+                <img className="px-15" src="/images/Geek_Support_logo.webp" alt="" />
               </div>
               <div className="w-full pt-4">
                 <button
